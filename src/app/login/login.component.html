@@ -1,0 +1,63 @@
+
+
+
+
+<section class="relative">
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-4">
+    <div class="text-center mb-5">
+      <img src="https://github.com/Sebastian-Paucar.png" alt="Image" height="50" class="mb-3">
+      <div class="text-900 text-3xl font-medium mb-3">Bienvenido</div>
+    </div>
+    <div>
+      <form [formGroup]="profileForm">
+        <label for="username" class="block text-900 font-medium mb-2">Email</label>
+        <input id="username" formControlName="name" type="text" aria-describedby="username-help"
+          placeholder="Email address" pInputText class="w-full mb-3 ">
+        <div *ngIf="name.invalid && (name.touched)" class="field p-fluid">
+          <small *ngIf="name.errors?.['required']" id="username-help" class="p-error">Usuario requerido</small>
+
+        </div>
+
+        <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+        <input formControlName="password" id="password1" type="password" placeholder="Password" pInputText
+          class="w-full mb-3">
+        <div *ngIf="password.invalid && (password.touched)" class="field p-fluid">
+          <small *ngIf="password.errors?.['required']" id="username-help" class="p-error">Contraseña requerida</small>
+
+        </div>
+
+
+        <div class="flex align-items-center justify-content-between mb-6">
+          <div class="flex align-items-center">
+            <p-checkbox formControlName="remember" id="remember" [binary]="true" styleClass="mr-2"></p-checkbox>
+            <label for="rememberme1" class="text-900">Remember me</label>
+          </div>
+          <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot
+            password?</a>
+        </div>
+
+        <button (click)="login()" pButton pRipple label="Sign In" icon="pi pi-user" class="w-full"></button>
+      </form>
+    </div>
+  </div>
+</section>
+@if (showAlert ) {
+<div class="alert">
+  <div class="alert-content">
+    <div class="surface-card p-6 shadow-3 border-round w-full lg:w-4">
+      <div class="flex align-items-center justify-content-between mb-6">
+        <div class="flex align-items-center">
+        </div>
+        <span class="font-full no-underline ml-2 text-right cursor-pointer" (click)="closeAlert()"><i class="pi pi-times"></i></span>
+      </div>
+        <div class="text-center mb-5">
+          <i class="pi pi-ban" style="font-size: 5rem"></i>
+        </div>
+        <br>
+      <div class="w-full mb-3"> <span class="text">{{message}}</span> </div>
+
+      <br>
+    </div>
+  </div>
+</div>
+}

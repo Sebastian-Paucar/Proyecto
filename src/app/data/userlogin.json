@@ -1,0 +1,8 @@
+{
+  "massages": "Hello World!",
+  "id": 1,
+  "name": "admin",
+  "last_name": "Paucar",
+  "email": "test@test.com",
+  "password": "admin"
+}
